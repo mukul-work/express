@@ -25,7 +25,7 @@ app.get("/new-entry", function(req,res){
     res.render("new-entry");
 })
 
-app.post("/new-entry", function(req,rees){
+app.post("/new-entry", function(req,res){
     if(!req.body.title || !req.body.body){
         res.status(400).send("Entries must have a title and a body.");
         return;
@@ -37,7 +37,7 @@ app.post("/new-entry", function(req,rees){
         published: new Date()
     });
 
-    response.redirect("/");
+    res.redirect("/");
 });
 
 app.use(function(req, res){
